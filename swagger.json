@@ -1,0 +1,189 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a swagger-json for hotel",
+        "title": "Wisdom Hotel API",
+        "termsOfService": "https://hotel.xinjingtech.net",
+        "contact": {},
+        "license": {
+            "name": "wisdom-hotel-api",
+            "url": "http://apidoc.tvplus.club/project/259/interface/api"
+        },
+        "version": "1.6"
+    },
+    "host": "api.test.xinjngtech.com",
+    "basePath": "/",
+    "paths": {
+        "/webapi/material/queryApks": {
+            "get": {
+                "description": "query all apks",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "素材库"
+                ],
+                "summary": "查询所有内置库应用信息",
+                "operationId": "material-queryApkStore-by-id",
+                "responses": {
+                    "200": {
+                        "description": "resp",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/common.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/definitions/dto.ApkStoreOss"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "/webapi/menu/create": {
+            "post": {
+                "description": "添加一个导航菜单",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "菜单导航和功能帮助"
+                ],
+                "summary": "创建导航菜单",
+                "operationId": "menu-create-post",
+                "parameters": [
+                    {
+                        "description": "menu",
+                        "name": "menu",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/dto.SysMenuNew"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "resp",
+                        "schema": {
+                            "$ref": "#/definitions/common.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "common.Response": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "description": "错误码",
+                    "type": "integer"
+                },
+                "data": {
+                    "description": "具体数据",
+                    "type": "object"
+                },
+                "msg": {
+                    "description": "错误码对应的提示",
+                    "type": "string"
+                }
+            }
+        },
+        "dto.ApkStoreOss": {
+            "type": "object",
+            "properties": {
+                "fileMd5": {
+                    "description": "文件MD5",
+                    "type": "string"
+                },
+                "fileSize": {
+                    "description": "文件大小",
+                    "type": "integer"
+                },
+                "groupCode": {
+                    "description": "分组编码",
+                    "type": "integer"
+                },
+                "groupName": {
+                    "description": "分组名称",
+                    "type": "string"
+                },
+                "iconUrl": {
+                    "description": "图标url",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "应用名",
+                    "type": "string"
+                },
+                "packageName": {
+                    "description": "包名",
+                    "type": "string"
+                },
+                "url": {
+                    "description": "apk url",
+                    "type": "string"
+                },
+                "versionCode": {
+                    "description": "版本号",
+                    "type": "integer"
+                },
+                "versionName": {
+                    "description": "版本名称",
+                    "type": "string"
+                }
+            }
+        },
+        "dto.SysMenuNew": {
+            "type": "object",
+            "properties": {
+                "level": {
+                    "description": "菜单级别",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "parentId": {
+                    "description": "父菜单id",
+                    "type": "integer"
+                },
+                "path": {
+                    "description": "路径",
+                    "type": "string"
+                },
+                "sortNo": {
+                    "description": "排序号",
+                    "type": "integer"
+                },
+                "status": {
+                    "description": "是否为默认快捷入口：1-默认，2-否",
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}
