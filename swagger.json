@@ -76,7 +76,7 @@
                     "type": "string"
                 }
             }
-        },
+        }
         "dto.ApkStoreOss": {
             "type": "object",
             "properties": {
