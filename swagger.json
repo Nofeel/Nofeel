@@ -57,8 +57,8 @@
                 }
             }
         }
-   
-    }
+       
+    },
     "definitions": {
         "common.Response": {
             "type": "object",
@@ -76,7 +76,7 @@
                     "type": "string"
                 }
             }
-        }
+        },
         "dto.ApkStoreOss": {
             "type": "object",
             "properties": {
