@@ -57,41 +57,7 @@
                 }
             }
         },
-        "/webapi/menu/create": {
-            "post": {
-                "description": "添加一个导航菜单",
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "菜单导航和功能帮助"
-                ],
-                "summary": "创建导航菜单",
-                "operationId": "menu-create-post",
-                "parameters": [
-                    {
-                        "description": "menu",
-                        "name": "menu",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/dto.SysMenuNew"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "resp",
-                        "schema": {
-                            "$ref": "#/definitions/common.Response"
-                        }
-                    }
-                }
-            }
-        }
+       
     },
     "definitions": {
         "common.Response": {
